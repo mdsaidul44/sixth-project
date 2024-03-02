@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Web Page</title> 
+    <title>Retro Web Page</title>
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,10 +12,81 @@
 
 <body>
     <header>
-        <h1 class="text-6xl">hello world</h1>
+        <!-- navbar section -->
+        <nav class="lg:mx-24 lg:mt-10 mt-5">
+            <div class="navbar ">
+                <div class="flex-1">
+                    <a class="btn btn-ghost text-xl lg:text-4xl text-[#12132D] font-bold">ReTro</a>
+                </div>
+                <div class="flex-none gap-2">
+                    <div class="">
+                        <img class="rounded-full  " src="images/home (1).jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="rounded-full" src="images/pen.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="rounded-full" src="images/add.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="rounded-full" src="images/flag.jpg" alt="">
+                    </div>
+                    <div>
+                        <button class="btn btn-active btn-secondary rounded-3xl bg-[#797DFC] border-none w-32">Sign
+                            In</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </nav>
     </header>
     <main>
-
+        <!-- banner section -->
+        <section class="lg:mx-24 lg:mt-10 mt-5  ">
+            <div class="">
+                <div class=" bg-[#12132D] h-[400px] rounded-3xl " style="background-image: url(images/bgbanner.png);">
+                    <div class="flex p-20 justify-between">
+                        <div class="  text-neutral-content">
+                            <div class="max-w-md">
+                                <h1 class="mb-5 text-5xl font-bold">Welcome to the <span
+                                        class="text-[#8488fc]">ReTro</span> Forum</h1>
+                                <p class="mb-5">Share your favorite opinion and win and wp forum coffee mug!</p>
+                                <div class="join rounded-3xl ">
+                                    <input class="input input-bordered join-item " placeholder="Search here anything" />
+                                    <button class="btn join-item bg-blue-400 ">Subscribe</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-72 h-60 rounded-2xl bg-slate-200 p-8">
+                            <div class="mb-5 justify-between  font-semibold text-black  flex">
+                                <p class=" ">Registered Users</p>
+                                <span class="  ">01</span>
+                            </div>
+                            <div class="mb-5 justify-between font-semibold text-black  flex">
+                                <p class=" ">Forum</p>
+                                <span class="  ">02</span>
+                            </div>
+                            <div class="mb-5 justify-between   font-semibold text-black  flex">
+                                <p class=" ">Topics</p>
+                                <span class="  ">03</span>
+                            </div>
+                            <div class="mb-5 justify-between   font-semibold text-black  flex">
+                                <p class=" ">Replies</p>
+                                <span class="  ">04</span>
+                            </div> 
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- discuss section -->
+        <section>
+             <div class="text-center mt-11 ">
+                <h1 class="font-bold text-3xl mb-5 text-[#12132D]">Let’s Discuss</h1>
+                <p class="text-[#12132D] font-semibold w-2/5 mx-auto">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+             </div>
+        </section>
     </main>
     <footer>
 

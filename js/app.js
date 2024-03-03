@@ -1,27 +1,28 @@
 const loadData = async (searchText) => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText   }`)
+    const res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`)
     const data = await res.json()
     const allData = data.posts
-    showDisplayData(allData)
-     
-    // handleButton(allData)
+    showDisplayData(allData) 
 }
-
-
  
-const showDisplayData = (items) => {
-    const newsCardContainer = document.getElementById('card-section') 
-    newsCardContainer.innerHTML=''
 
+
+const showDisplayData = (items) => {
+    
+    const newsCardContainer = document.getElementById('card-section')
+    newsCardContainer.innerHTML = ''
     // console.log( items)
     items.forEach((item) => {
         console.log(item)
-        
-        const newsCard = document.createElement('div') 
+         let countRead = ''
+         if(item.author.isActive){
+            countRead=`green`
+         }
+        const newsCard = document.createElement('div')
         newsCard.innerHTML = `
         <div class="bg-slate-300 lg:flex lg:w-[800px] rounded-2xl border-slate-400 border-2 mt-6">
                             <div class="indicator w-16 h-20 m-4 mt-10">
-                                <span class="indicator-item badge bg-green-600 "></span>
+                            <span class="indicator-item badge">${countRead}</span>
                                 <img src="${item.image}" alt="">
                             </div>
                             <div class="py-8 px-2">
@@ -55,23 +56,16 @@ const showDisplayData = (items) => {
                             </div>
                         </div>
         `
-        newsCardContainer.appendChild(newsCard)
-        
-    }) 
+        newsCardContainer.appendChild(newsCard) 
+    })
+    toggleLoadingSpinner(false)
 }
 
-let sum =0;
- const countReading =document.getElementById('count-reading')
+ 
+// const countReading = document.getElementById('count-reading')
 const readContainer = document.getElementById('read-section')
-const handleButton = (sum) => {
-    
-   const result = sum + 1
-     countReading
-// countReading.addEventListener('click',function(){
-//     sum = sum + 1;
-//     setInnerText(sum)
-// })
-
+const handleButton = () => { 
+      
     console.log('button added')
     const readSection = document.createElement('div')
     readSection.innerHTML = `
@@ -83,22 +77,63 @@ const handleButton = (sum) => {
         </div>
     </div>
     `
-    readContainer.appendChild(readSection)  
+    readContainer.appendChild(readSection)
 }
-  
-const searchHandler = () =>{
+
+const searchHandler = () => {
+    toggleLoadingSpinner(true)
     // console.log('search button added')
-     const searchInput = document.getElementById('search-input')
-     const searchText = searchInput.value;
+    const searchInput = document.getElementById('search-input')
+    const searchText = searchInput.value;
     //  console.log(searchText)
     loadData(searchText)
 }
 
-
-const uploadData =async () =>{
-    const res = await fetch(``)
+const anotherCardContainer = document.getElementById('another-card-container')
+const uploadData = async () => {
+    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts')
     const data = await res.json()
-    console.log(data)
+
+
+    data.forEach(data => {
+        // console.log(data)
+        const anotherContainer = document.createElement('div')
+        anotherContainer.innerHTML = `
+        <div class="card lg:w-96 bg-base-100 shadow-xl p-6  border-slate-400 border-2">
+        <figure><img class="rounded-2xl mb-4"
+                src="${data.cover_image}" alt="Shoes" /></figure>
+        <div class="">
+            <div class="flex ">
+                <i class="fa-solid fa-briefcase m-1.5"></i>
+                <p>${data.author?.posted_date}</p>
+            </div>
+            <h1 class="font-bold mb-3">${data.title}</h1>
+            <p>${data.description}</p>
+            <div class="card-actions justify-end">
+                <div class="flex">
+                    <img class="w-16 h-16 rounded-full p-1 mt-4  "
+                        src="${data.profile_image}" alt="">
+                    <div class="mr-36 mt-4">
+                        <h1 class="font-semibold">${data.author.name}</h1>
+                        <p>${data.author.designation}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        `
+        anotherCardContainer.appendChild(anotherContainer)
+
+    })
+}
+
+const toggleLoadingSpinner = (isLoading) =>{
+    const loadingSpinner  = document.getElementById('loading-spinner')
+   if(isLoading){
+    loadingSpinner.classList.remove('hidden')
+   }else{
+    loadingSpinner.classList.add('hidden')
+   }
 }
 
 uploadData()

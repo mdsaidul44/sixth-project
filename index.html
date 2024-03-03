@@ -92,18 +92,20 @@
                 <p class="text-[#12132D] font-semibold lg:w-2/5 mx-auto">Yes, you can run unit tests and view the
                     results directly within the app. The integrated testing features allow for a streamlined .</p>
             </div>
-
+            <div id="loading-spinner" class="text-center m-10 hidden">
+                <span class="loading loading-spinner loading-lg"></span> 
+            </div>
             <!-- discuss card -->
             <div id="discuss-section" class=" lg:flex justify-between lg:mx-24 mt-14 ">
                 <div id="card-section" class="">
-                     
+
                 </div>
                 <div class="bg-slate-300 lg:w-[450px] rounded-2xl lg:mt-6 mt-6 ">
                     <div class="flex justify-between p-6">
                         <h1 class="text-xl font-semibold">Title</h1>
                         <div class="flex">
                             <i class="fa-solid fa-check-double m-1.5 text-teal-500 "></i>
-                            <p class="">Mark as read<span class="   ">(0)</span></p>
+                            <p class="">Mark as read<span id="read-count">(0)</span></p>
                         </div>
                     </div>
                     <div id="read-section">
@@ -142,29 +144,8 @@
             </div>
 
             <!-- cards -->
-            <div class="lg:mx-24 mt-10">
-                <div class="card lg:w-96 bg-base-100 shadow-xl p-6  border-slate-400 border-2">
-                    <figure><img class="rounded-2xl mb-4"
-                            src="https://i.ibb.co/pjM6Ybr/pexels-anastasia-shuraeva-9607206.jpg" alt="Shoes" /></figure>
-                    <div class="">
-                        <div class="flex ">
-                            <i class="fa-solid fa-briefcase m-1.5"></i>
-                            <p>29 January 2024</p>
-                        </div>
-                        <h1 class="font-bold mb-3">What will a mars habitat force that impact in our daily life!!!</h1>
-                        <p>Yes, you can run unit tests and view the results directly within the app. </p>
-                        <div class="card-actions justify-end">
-                            <div class="flex">
-                                <img class="w-16 h-16 rounded-full p-1 mt-4  "
-                                    src="https://i.ibb.co/pjM6Ybr/pexels-anastasia-shuraeva-9607206.jpg" alt="">
-                                <div class="mr-28 mt-4">
-                                    <h1 class="font-semibold">Cameron Williamson</h1>
-                                    <p>Unknown</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="another-card-container" class="lg:mx-24 mt-10 grid lg:grid-cols-3 flex-1">
+
             </div>
         </section>
     </main>

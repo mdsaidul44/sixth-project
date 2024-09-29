@@ -50,7 +50,7 @@ const showDisplayData = (items) => {
                                         <span>${item.posted_time}</span>
                                     </div>
                                     <div class="lg:ml-80">
-                                        <button id="news-btn" onclick="handleButton(${item?.author?.title},${item.author?.view_count})" class="bg-sky-400 w-10 h-10 rounded-full"><i
+                                        <button id="news-btn" onclick="handleButton('${item.title}','${item.view_count}')" class="bg-sky-400 w-10 h-10 rounded-full"><i
                                         class="fa-solid fa-envelope-open-text "></i></button>
                                     </div>
                                 </div>
@@ -66,15 +66,15 @@ const showDisplayData = (items) => {
 
 // const countReading = document.getElementById('count-reading')
 const readContainer = document.getElementById('read-section')
-const handleButton = (click,view)=> {  
+const handleButton = (title, price)=> {  
     console.log('button added')
     const readSection = document.createElement('div')
     readSection.innerHTML = `
     <div class="flex justify-between  bg-slate-100 mx-4 rounded-xl mb-2 p-4">
-        <h1 class=" font-semibold w-72">Introduction to Python: A Beginner's Guide</h1>
+        <h1 class=" font-semibold w-72">${title}</h1>
         <div class="mt-2">
             <i class="fa-regular fa-eye mt-1.5 "></i>
-            <span>${click}</span>
+            <span>${price}</span>
         </div>
     </div>
     `
